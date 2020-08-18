@@ -34,58 +34,52 @@ public class BaseResponse<T> implements Serializable {
 
     public BaseResponse() {
         super();
-        this.setSuccess(false);
-    }
-
-    public BaseResponse(boolean success) {
-        super();
-        this.setSuccess(success);
+        this.setError();
     }
 
     public BaseResponse(T data) {
         super();
-        this.setSuccess(success);
+        this.setSuccess(true);
         this.data = data;
     }
 
-    public BaseResponse(T data, String msg) {
+    public BaseResponse(T data, String message) {
         super();
-        this.setSuccess(success);
+        this.setSuccess(true);
         this.data = data;
-        this.msg = msg;
+        this.message = message;
     }
 
     public BaseResponse(Throwable e, ErrorCode errorCode) {
         super();
         this.setError(errorCode);
-        this.setError(e);
-    }
-
-    public void setSuccess(boolean success) {
-        this.success = success;
-        this.code = ErrorCode.SUCCESS.getCode();
-        this.msg = ErrorCode.SUCCESS.name();
+        this.message = e.getMessage();
     }
 
     public boolean isSuccess() {
         return this.success;
     }
 
-    public void setError(ErrorCode errorCode) {
+    private void setSuccess(boolean success) {
+        this.success = success;
+        this.code = ErrorCode.SUCCESS.getCode();
+        this.msg = ErrorCode.SUCCESS.name();
+        this.message = ErrorCode.SUCCESS.getMessage();
+    }
+
+    private void setError() {
+        this.success = false;
+        this.code = ErrorCode.FAIL.getCode();
+        this.msg = ErrorCode.FAIL.name();
+        this.message = ErrorCode.FAIL.getMessage();
+    }
+
+    private void setError(ErrorCode errorCode) {
         this.success = false;
         this.code = errorCode.getCode();
         this.msg = errorCode.name();
         this.message = errorCode.getMessage();
     }
-
-    public void setError(Throwable e) {
-        this.message = e.getMessage();
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
-
 
     public int getCode() {
         return code;
@@ -97,6 +91,10 @@ public class BaseResponse<T> implements Serializable {
 
     public String getMsg() {
         return msg;
+    }
+
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
 
     public String getMessage() {
