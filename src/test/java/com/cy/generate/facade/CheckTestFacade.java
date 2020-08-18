@@ -6,6 +6,7 @@ import com.cy.generate.support.executor.RequestCheckExecutor;
 import com.cy.generate.support.executor.TokenCheckExecutor;
 import com.cy.generate.support.handler.RequestCheckHandler;
 import com.cy.generate.support.handler.TokenCheckHandler;
+import com.cy.generate.support.holder.ContextHolder;
 import com.cy.generate.support.processor.RequestCheckProcessor;
 import com.cy.generate.support.processor.TokenCheckProcessor;
 
@@ -15,6 +16,8 @@ import com.cy.generate.support.processor.TokenCheckProcessor;
  * @Date: 2020/8/18 14:08
  */
 public class CheckTestFacade {
+
+    private ContextHolder contextHolder = new ContextHolder();
 
     //step 1
     private RequestCheckHandler requestCheckHandler;
@@ -33,6 +36,9 @@ public class CheckTestFacade {
      * 验证整体流程
      */
     public void testCheck() {
+        String request = "requestParam";
+        contextHolder.bindRequest(request);
+
         //step 1
         requestCheckHandler = new RequestCheckHandler();
         tokenCheckHandler = new TokenCheckHandler();
@@ -45,7 +51,9 @@ public class CheckTestFacade {
         //step 4
         checkProcessorChain = new CheckProcessorChain(requestCheckProcessor, tokenCheckProcessor);
         checkFacade = new CheckFacade(checkProcessorChain);
-        checkFacade.param("testCheck").doChain();
+        checkFacade.param(contextHolder.getRequest()).doChain();
+
+        contextHolder.clear();
 
     }
 
