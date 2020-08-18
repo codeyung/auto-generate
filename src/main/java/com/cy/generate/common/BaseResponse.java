@@ -1,14 +1,36 @@
 package com.cy.generate.common;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.io.Serializable;
 
 /**
  * @Description:
  * @Author: YongJingChuan
  * @Date: 2020/8/18 15:49
  */
-public class BaseResponse extends HashMap<Object, Object> {
+public class BaseResponse<T> implements Serializable {
+
+    /**
+     * 请求结果
+     */
+    private boolean success;
+    /**
+     * 返回码
+     */
+    private int code;
+    /**
+     * 返回信息
+     */
+    private String msg;
+    /**
+     * 详细描述
+     */
+    private String message;
+
+    /**
+     * 响应数据
+     */
+    private T data;
+
 
     public BaseResponse() {
         super();
@@ -20,24 +42,77 @@ public class BaseResponse extends HashMap<Object, Object> {
         this.setSuccess(success);
     }
 
+    public BaseResponse(T data) {
+        super();
+        this.setSuccess(success);
+        this.data = data;
+    }
+
+    public BaseResponse(T data, String msg) {
+        super();
+        this.setSuccess(success);
+        this.data = data;
+        this.msg = msg;
+    }
+
+    public BaseResponse(Throwable e, ErrorCode errorCode) {
+        super();
+        this.setError(errorCode);
+        this.setError(e);
+    }
+
     public void setSuccess(boolean success) {
-        this.put("success", success);
+        this.success = success;
+        this.code = ErrorCode.SUCCESS.getCode();
+        this.msg = ErrorCode.SUCCESS.name();
     }
 
     public boolean isSuccess() {
-        return (boolean) this.get("success");
+        return this.success;
     }
 
-    public void setError(ErrorCode code) {
-        Map error = new HashMap();
-        error.put("code", code.getCode());
-        error.put("msg", code);
-        error.put("message", code.getMessage());
-        this.put("error", error);
+    public void setError(ErrorCode errorCode) {
+        this.success = false;
+        this.code = errorCode.getCode();
+        this.msg = errorCode.name();
+        this.message = errorCode.getMessage();
+    }
+
+    public void setError(Throwable e) {
+        this.message = e.getMessage();
     }
 
     public void setMsg(String msg) {
-        this.put("msg", msg);
+        this.msg = msg;
+    }
+
+
+    public int getCode() {
+        return code;
+    }
+
+    public void setCode(int code) {
+        this.code = code;
+    }
+
+    public String getMsg() {
+        return msg;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public T getData() {
+        return data;
+    }
+
+    public void setData(T data) {
+        this.data = data;
     }
 
 

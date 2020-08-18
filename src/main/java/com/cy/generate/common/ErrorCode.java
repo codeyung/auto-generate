@@ -6,6 +6,13 @@ package com.cy.generate.common;
  * @Date: 2020/8/18 15:50
  */
 public enum ErrorCode {
+
+    //常用
+    SUCCESS(200, "成功"),
+    FAIL(400, "失败"),
+    UNKNOW(404, "未知"),
+    EXCEPTION(500, "内部错误"),
+
     //系统
     SERVER_BUSY(10000, "系统繁忙，此时请开发者稍候再试"),
     ERROR(10001, "错误"),
