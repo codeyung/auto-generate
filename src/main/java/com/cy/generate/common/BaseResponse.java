@@ -24,6 +24,10 @@ public class BaseResponse extends HashMap<Object, Object> {
         this.put("success", success);
     }
 
+    public boolean isSuccess() {
+        return (boolean) this.get("success");
+    }
+
     public void setError(ErrorCode code) {
         Map error = new HashMap();
         error.put("code", code.getCode());
@@ -35,6 +39,6 @@ public class BaseResponse extends HashMap<Object, Object> {
     public void setMsg(String msg) {
         this.put("msg", msg);
     }
-    
+
 
 }
