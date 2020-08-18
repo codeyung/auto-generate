@@ -31,6 +31,8 @@ query|查询模块
  file|文件
  text|文字
  time|时间
+ pattern|模式
+ support|支持
  
  ## 3. pom样例
  ``<description>脚手架</description>
