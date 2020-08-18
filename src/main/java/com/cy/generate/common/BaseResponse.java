@@ -115,5 +115,16 @@ public class BaseResponse<T> implements Serializable {
         this.data = data;
     }
 
+    @Override
+    public String toString() {
+        return "BaseResponse{" +
+                "success=" + success +
+                ", code=" + code +
+                ", msg='" + msg + '\'' +
+                ", message='" + message + '\'' +
+                ", data=" + data +
+                '}';
+    }
+
 
 }
