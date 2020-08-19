@@ -151,65 +151,35 @@ query|查询模块
         </plugins>
     </build>
 
+    
+
     <profiles>
-        <!--本地环境-->
         <profile>
             <id>local</id>
+            <properties>
+                <env>local</env>
+            </properties>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
-            <build>
-                <resources>
-                    <resource>
-                        <directory>src/main/resources</directory>
-                    </resource>
-                    <resource>
-                        <directory>${profiles.dir}/local</directory>
-                    </resource>
-                </resources>
-            </build>
         </profile>
-        <!--测试环境-->
         <profile>
             <id>test</id>
-            <build>
-                <resources>
-                    <resource>
-                        <directory>src/main/resources</directory>
-                    </resource>
-                    <resource>
-                        <directory>${profiles.dir}/test</directory>
-                    </resource>
-                </resources>
-            </build>
+            <properties>
+                <env>test</env>
+            </properties>
         </profile>
-        <!--预发环境-->
         <profile>
             <id>pre</id>
-            <build>
-                <resources>
-                    <resource>
-                        <directory>src/main/resources</directory>
-                    </resource>
-                    <resource>
-                        <directory>${profiles.dir}/pre</directory>
-                    </resource>
-                </resources>
-            </build>
+            <properties>
+                <env>pre</env>
+            </properties>
         </profile>
-        <!--生产环境-->
         <profile>
-            <id>production</id>
-            <build>
-                <resources>
-                    <resource>
-                        <directory>src/main/resources</directory>
-                    </resource>
-                    <resource>
-                        <directory>${profiles.dir}/production</directory>
-                    </resource>
-                </resources>
-            </build>
+            <id>prod</id>
+            <properties>
+                <env>prod</env>
+            </properties>
         </profile>
     </profiles>
 
