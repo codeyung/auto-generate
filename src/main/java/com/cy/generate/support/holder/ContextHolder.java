@@ -67,7 +67,9 @@ public class ContextHolder<T, R> {
     }
 
     public T getRequest() {
-        return (T) localVariable.get().get(REQUEST_PARAM);
+        T request = (T) localVariable.get().get(REQUEST_PARAM);
+        LOGGER.info("[ContextHolder] key=request_param,value={} getted.", GsonUtils.toJson(request));
+        return request;
     }
 
     public void bindResponse(R value) {
