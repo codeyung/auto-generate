@@ -1,11 +1,16 @@
 package com.cy.generate.support;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * @Description:处理器
  * @Author: YongJingChuan
  * @Date: 2020/8/18 10:33
  */
 public abstract class BaseProcessor {
+
+    private final static Logger LOGGER = LoggerFactory.getLogger(BaseProcessor.class);
 
     private BaseExecutor executor;
 
@@ -22,6 +27,7 @@ public abstract class BaseProcessor {
      * @return
      */
     protected final void process() {
+        LOGGER.debug("[BaseProcessor] processor is {}.", this.getClass().getName());
         executor.execute();
     }
 

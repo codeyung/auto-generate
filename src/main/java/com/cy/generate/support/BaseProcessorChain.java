@@ -1,5 +1,8 @@
 package com.cy.generate.support;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * @Description:处理器链
  * @Author: YongJingChuan
@@ -7,16 +10,18 @@ package com.cy.generate.support;
  */
 public abstract class BaseProcessorChain {
 
+
+    private final static Logger LOGGER = LoggerFactory.getLogger(BaseProcessorChain.class);
+
     private BaseProcessor[] processors;
 
     /**
      * 串行
      */
     protected final void execute() {
-        System.out.println("BaseProcessorChain-执行");
+        LOGGER.debug("[BaseProcessorChain] processorChain is {}.", this.getClass().getName());
         for (BaseProcessor processor : processors) {
             if (processor.executeFlag()) {
-                System.out.println("BaseProcessor-执行");
                 processor.process();
             }
         }

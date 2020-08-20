@@ -1,5 +1,8 @@
 package com.cy.generate.support;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * @Description:执行体链
  * @Author: YongJingChuan
@@ -7,14 +10,17 @@ package com.cy.generate.support;
  */
 public abstract class BaseExecutor {
 
+    private final static Logger LOGGER = LoggerFactory.getLogger(BaseExecutor.class);
+
     private BaseHandler[] handlers;
 
     /**
      * 串行
      */
     protected final void execute() {
-        System.out.println("BaseExecutor-执行");
+        LOGGER.debug("[BaseExecutor] executor is {}.", this.getClass().getName());
         for (BaseHandler handler : handlers) {
+            LOGGER.debug("[BaseExecutor] handler is {}.", handler.getClass().getName());
             if (handler.executeFlag()) {
                 handler.execute();
             }
