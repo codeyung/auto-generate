@@ -19,12 +19,13 @@ public abstract class BaseProcessorChain {
      * 串行
      */
     protected final void execute() {
-        LOGGER.debug("[BaseProcessorChain] processorChain is {}.", this.getClass().getName());
+        LOGGER.debug("[BaseProcessorChain] processorChain is {} , started", this.getClass().getName());
         for (BaseProcessor processor : processors) {
             if (processor.executeFlag()) {
                 processor.process();
             }
         }
+        LOGGER.debug("[BaseProcessorChain] processorChain is {} , ended", this.getClass().getName());
     }
 
     /**

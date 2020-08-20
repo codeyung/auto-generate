@@ -27,7 +27,7 @@ public abstract class BaseProcessor {
      * @return
      */
     protected final void process() {
-        LOGGER.debug("[BaseProcessor] processor is {}.", this.getClass().getName());
+        LOGGER.debug("[BaseProcessor] processor is {} ", this.getClass().getName());
         executor.execute();
     }
 

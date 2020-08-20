@@ -18,13 +18,14 @@ public abstract class BaseExecutor {
      * 串行
      */
     protected final void execute() {
-        LOGGER.debug("[BaseExecutor] executor is {}.", this.getClass().getName());
+        LOGGER.debug("[BaseExecutor] executor is {} , started", this.getClass().getName());
         for (BaseHandler handler : handlers) {
-            LOGGER.debug("[BaseExecutor] handler is {}.", handler.getClass().getName());
+            LOGGER.debug("[BaseExecutor] handler is {} ", handler.getClass().getName());
             if (handler.executeFlag()) {
                 handler.execute();
             }
         }
+        LOGGER.debug("[BaseExecutor] executor is {} , ended", this.getClass().getName());
     }
 
     /**
