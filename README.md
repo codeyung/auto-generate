@@ -351,7 +351,7 @@ query|查询模块
 ```
  
  ## 5. 业务抽象逻辑
- ![image]( https://github.com/ljheee/HexTransform/blob/master/abc.jpg)
+ ![image](https://github.com/codeyung/auto-generate/blob/master/src/main/resources/biz.jpg)
  
  ## 6. 开发事项
  1. 抽象结构
