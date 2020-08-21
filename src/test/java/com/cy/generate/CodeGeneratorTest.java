@@ -33,7 +33,7 @@ public class CodeGeneratorTest {
     private static String author = "YongJingChuan";//创建人
     private static String parentname = "com.cy.generate";//模块名
 
-    private static String dbUrl = "jdbc:mysql://140.143.11.131:3306/cf_limit?useUnicode=true&characterEncoding=UTF-8" +
+    private static String dbUrl = "jdbc:mysql://my.server.com:3306/cf_limit?useUnicode=true&characterEncoding=UTF-8" +
             "&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&useSSL=false&serverTimezone=Hongkong";//数据库地址
     //    private static String driverName = "com.mysql.jdbc.Driver";//数据库驱动
     private static String driverName = "com.mysql.cj.jdbc.Driver";//数据库驱动
