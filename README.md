@@ -2,6 +2,9 @@ auto-generate
 ====
 脚手架
 
+``代码生成入口请看CodeGeneratorTest
+``
+
 ## 1. 模块说明
 |名称|描述
  ---- | ----- 
