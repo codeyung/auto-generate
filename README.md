@@ -35,10 +35,11 @@ query|查询模块
  support|支持
  
  ## 3. pom样例
- ``<description>脚手架</description>
+ ```xml<description>脚手架</description>
    <groupId>com.cy.generate</groupId>
    <artifactId>auto-generate</artifactId>
-   <version>1.0.0-SNAPSHOT</version>``
+   <version>1.0.0-SNAPSHOT</version>
+```
  ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
