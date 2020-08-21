@@ -7,7 +7,7 @@ import com.cy.generate.common.exception.CommonException;
 /**
  * @Description:
  * @Author: YongJingChuan
- * @Date: 2020/8/20 16:29
+ * @Date: 2020/8/22 16:29
  */
 public class ExceptionTest {
 

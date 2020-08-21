@@ -3,7 +3,7 @@ package com.cy.generate.common;
 /**
  * @Description:
  * @Author: YongJingChuan
- * @Date: 2020/8/18 15:50
+ * @Date: 2020/8/22 15:50
  */
 public enum ErrorCode {
 

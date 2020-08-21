@@ -350,7 +350,10 @@ query|查询模块
 </project>
 ```
  
- ## 5. 开发事项
+ ## 5. 业务抽象逻辑
+ ![image]( https://github.com/ljheee/HexTransform/blob/master/abc.jpg)
+ 
+ ## 6. 开发事项
  1. 抽象结构
  2. 系统流程
  3. 问题点

@@ -5,7 +5,7 @@ import lombok.Data;
 /**
  * @Description:数据源属性文件
  * @Author: YongJingChuan
- * @Date: 2020/8/19 14:44
+ * @Date: 2020/8/22 14:44
  */
 @Data
 public class DataSourceProperties {

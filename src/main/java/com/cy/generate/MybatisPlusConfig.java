@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * @Description:
  * @Author: YongJingChuan
- * @Date: 2020/8/17 23:56
+ * @Date: 2020/8/22 23:56
  */
 @Configuration
 @MapperScan(basePackages = {"com.cy.generate.mapper"})

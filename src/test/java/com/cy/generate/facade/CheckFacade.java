@@ -7,7 +7,7 @@ import com.cy.generate.support.chain.CheckProcessorChain;
 /**
  * @Description:
  * @Author: YongJingChuan
- * @Date: 2020/8/18 14:08
+ * @Date: 2020/8/22 14:08
  */
 public class CheckFacade extends BaseProcessorChainFactory {
 

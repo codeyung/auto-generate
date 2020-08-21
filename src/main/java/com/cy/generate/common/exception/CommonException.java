@@ -5,7 +5,7 @@ import com.cy.generate.common.ErrorCode;
 /**
  * @Description:
  * @Author: YongJingChuan
- * @Date: 2020/8/20 16:20
+ * @Date: 2020/8/22 16:20
  */
 public class CommonException extends RuntimeException {
 

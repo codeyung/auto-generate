@@ -5,7 +5,7 @@ import lombok.Data;
 /**
  * @Description:Redis属性文件
  * @Author: YongJingChuan
- * @Date: 2020/8/19 15:02
+ * @Date: 2020/8/22 15:02
  */
 @Data
 public class RedisProperties {

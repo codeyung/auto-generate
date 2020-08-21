@@ -13,7 +13,7 @@ import java.util.Objects;
 /**
  * @Description:与线程绑定环境变量
  * @Author: YongJingChuan
- * @Date: 2020/8/18 15:28
+ * @Date: 2020/8/22 15:28
  */
 @Component("contextHolder")
 public class ContextHolder<T, R> {

@@ -1,8 +1,9 @@
 package com.cy.generate.common;
 
 /**
- * @author: codeyung  E-mail:yjc199308@gmail.com
- * @date: 2020-08-18.21:47
+ * @Description:
+ * @Author: YongJingChuan
+ * @Date: 2020/8/22 15:50
  */
 public class ResponseTest {
 

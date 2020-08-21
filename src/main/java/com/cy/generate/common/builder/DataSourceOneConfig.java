@@ -3,7 +3,7 @@ package com.cy.generate.common.builder;
 /**
  * @Description:自定义数据源
  * @Author: YongJingChuan
- * @Date: 2020/8/19 19:46
+ * @Date: 2020/8/22 19:46
  */
 //@Configuration
 //@MapperScan(basePackages = {"xxx.xxx.a.mapper", "xxx.xxx.mapper"}, sqlSessionTemplateRef = "sqlSessionTemplate1")
