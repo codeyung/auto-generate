@@ -107,7 +107,9 @@ public class BetaProcessor<T extends BaseHandler> implements IProcessor, Iterabl
         Iterator iterator = this.iterator();
         while (iterator.hasNext()) {
             T handler = (T) iterator.next();
-            handler.execute();
+            if (handler.executeFlag()) {
+                handler.execute();
+            }
         }
         this.processSuccessor();
     }
