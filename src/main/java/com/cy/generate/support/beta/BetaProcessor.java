@@ -1,6 +1,5 @@
 package com.cy.generate.support.beta;
 
-import com.cy.generate.common.exception.CommonException;
 import com.cy.generate.support.BaseHandler;
 import com.cy.generate.support.holder.ContextHolder;
 import org.slf4j.Logger;
@@ -104,16 +103,11 @@ public class BetaProcessor<T extends BaseHandler> implements IProcessor, Iterabl
 
     @Override
     public void process() {
-        try {
-            this.getProcessor().process();
-            Iterator iterator = this.iterator();
-            while (iterator.hasNext()) {
-                T handler = (T) iterator.next();
-                handler.execute();
-            }
-        } catch (CommonException e) {
-            e.printStackTrace();
-            this.terminate();
+        this.getProcessor().process();
+        Iterator iterator = this.iterator();
+        while (iterator.hasNext()) {
+            T handler = (T) iterator.next();
+            handler.execute();
         }
         this.processSuccessor();
     }
