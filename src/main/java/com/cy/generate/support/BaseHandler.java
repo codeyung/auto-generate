@@ -12,13 +12,13 @@ public abstract class BaseHandler {
      *
      * @return
      */
-    protected abstract boolean executeFlag();
+    public abstract boolean executeFlag();
 
     /**
      * 模型处理方法
      *
      * @return
      */
-    protected abstract void execute();
+    public abstract void execute();
 
 }

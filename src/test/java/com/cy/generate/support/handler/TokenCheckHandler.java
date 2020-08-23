@@ -11,12 +11,12 @@ import com.cy.generate.support.BaseHandler;
 public class TokenCheckHandler extends BaseHandler {
 
     @Override
-    protected boolean executeFlag() {
+    public boolean executeFlag() {
         return true;
     }
 
     @Override
-    protected void execute() {
+    public void execute() {
         System.out.println("TokenCheckHandler-execute");
     }
 }

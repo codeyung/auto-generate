@@ -1,14 +1,17 @@
-package com.cy.generate.support.handler;
+package com.cy.generate.support.beta;
 
 
+import com.cy.generate.common.exception.CommonException;
 import com.cy.generate.support.BaseHandler;
+import org.springframework.stereotype.Service;
 
 /**
  * @Description:
  * @Author: YongJingChuan
  * @Date: 2020/8/22 13:56
  */
-public class RequestCheckHandler extends BaseHandler {
+@Service
+public class Handler2 extends BaseHandler {
 
     @Override
     public boolean executeFlag() {
@@ -17,6 +20,7 @@ public class RequestCheckHandler extends BaseHandler {
 
     @Override
     public void execute() {
-        System.out.println("RequestCheckHandler-execute");
+
+        throw new CommonException("1测试");
     }
 }
