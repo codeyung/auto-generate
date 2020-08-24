@@ -11,7 +11,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 
 /**
- * @Description:
+ * @Description:处理器基类
  * @Author: YongJingChuan
  * @Date: 2020/8/22 13:56
  */
