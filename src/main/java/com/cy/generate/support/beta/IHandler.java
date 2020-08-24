@@ -1,24 +1,24 @@
 package com.cy.generate.support.beta;
 
 /**
- * @Description:处理器
+ * @Description:执行体
  * @Author: YongJingChuan
  * @Date: 2020/8/22 13:56
  */
-public interface IProcessor<T> {
+public interface IHandler {
 
     /**
-     * 处理器配置
+     * 业务开关是否执行
      *
      * @return
      */
-    public void configurate();
+    public boolean executeFlag();
 
     /**
-     * 处理器执行
+     * 模型处理方法
      *
      * @return
      */
-    public void process();
+    public void execute();
 
 }

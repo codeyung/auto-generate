@@ -2,7 +2,6 @@ package com.cy.generate.support.beta;
 
 
 import com.cy.generate.common.exception.CommonException;
-import com.cy.generate.support.BaseHandler;
 import org.springframework.stereotype.Service;
 
 /**
@@ -11,7 +10,7 @@ import org.springframework.stereotype.Service;
  * @Date: 2020/8/22 13:56
  */
 @Service
-public class Handler2 extends BaseHandler {
+public class Handler2 implements IHandler {
 
     @Override
     public boolean executeFlag() {
