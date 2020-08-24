@@ -5,6 +5,8 @@ package com.cy.generate.support.beta;
  * @date: 2020-08-23.17:01
  */
 public interface IProcessor<T> {
+    
+    public void configurate();
 
     public void process();
 

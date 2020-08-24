@@ -1,23 +1,23 @@
 package com.cy.generate.support.beta;
 
-import com.cy.generate.support.BaseHandler;
 import com.cy.generate.support.holder.ContextHolder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
 
 import javax.annotation.Resource;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-@Scope("prototype")
-@Component("betaProcessor")
-public class BetaProcessor<T extends BaseHandler> implements IProcessor, Iterable {
+/**
+ * @Description:
+ * @Author: YongJingChuan
+ * @Date: 2020/8/22 13:56
+ */
+public abstract class BaseProcessor<T> implements IProcessor, Iterable {
 
-    private final static Logger LOGGER = LoggerFactory.getLogger(BetaProcessor.class);
+    private final static Logger LOGGER = LoggerFactory.getLogger(BaseProcessor.class);
     /**
      * 线程变量
      */
@@ -70,9 +70,7 @@ public class BetaProcessor<T extends BaseHandler> implements IProcessor, Iterabl
             LOGGER.debug("[BaseProcessor] terminate is stop status , it will stop all processors.");
             return;
         }
-        if (!hasSuccessor()) {
-            return;
-        }
+        if (!hasSuccessor()) return;
         getSuccessor().process();
     }
 
@@ -93,25 +91,6 @@ public class BetaProcessor<T extends BaseHandler> implements IProcessor, Iterabl
 
     public void setHandlers(LinkedList<T> handlers) {
         this.handlers = handlers;
-    }
-
-    public void configurate(IProcessor processor, IProcessor successor, LinkedList handlers) {
-        this.setProcessor(processor);
-        this.setSuccessor(successor);
-        this.setHandlers(handlers);
-    }
-
-    @Override
-    public void process() {
-        this.getProcessor().process();
-        Iterator iterator = this.iterator();
-        while (iterator.hasNext()) {
-            T handler = (T) iterator.next();
-            if (handler.executeFlag()) {
-                handler.execute();
-            }
-        }
-        this.processSuccessor();
     }
 
     protected void attach(T handler) {
@@ -150,9 +129,7 @@ public class BetaProcessor<T extends BaseHandler> implements IProcessor, Iterabl
     }
 
     private boolean isTerminated() {
-        if (null == contextHolder.getLocal(TERMINATE)) {
-            return false;
-        }
+        if (null == contextHolder.getLocal(TERMINATE)) return false;
         return (boolean) contextHolder.getLocal(TERMINATE);
     }
 }
