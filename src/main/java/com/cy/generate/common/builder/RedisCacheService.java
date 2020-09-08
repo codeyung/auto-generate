@@ -181,17 +181,17 @@
 //        return null;
 //    }
 //
-//    /**
-//     * @param key
-//     * @param pattern
-//     * @param count
-//     * @return
-//     */
+///**
+// * @param key
+// * @param pattern
+// * @param count
+// * @return
+// */
 //public List<String> hscan(String key, String pattern, int count) {
 //        String cursor = STR_CURSOR;
 //        List<String> keys = new ArrayList<>();
-//        while (true) {
 //        try {
+//        while (true) {
 //        ScanResult<Map.Entry<String, String>> scanResult =
 //        redis.hscan(key, cursor, new ScanParams().match(pattern).count(count));
 //        cursor = scanResult.getCursor();
@@ -203,9 +203,10 @@
 //        if (cursor.equals(STR_CURSOR)) {
 //        break;
 //        }
+//        }
 //        } catch (Exception e) {
 //        LOGGER.error("hscan 出错", e);
-//        }
+//        return null;
 //        }
 //        return keys;
 //        }
