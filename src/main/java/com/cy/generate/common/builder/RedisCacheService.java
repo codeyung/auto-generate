@@ -67,6 +67,21 @@
 //        }
 //        return false;
 //    }
+///**
+// * @param key
+// * @param object
+// * @param seconds
+// * @return
+// */
+//public boolean setnxex(String key, Object object, int seconds) {
+//        try {
+//        String json = GsonUtils.toJson(object);
+//        return STR_SUCCESS.equals(redis.set(key, json, "NX", "EX", seconds));
+//        } catch (Exception e) {
+//        LOGGER.error("setex 出错", e);
+//        }
+//        return false;
+//        }
 //
 //    /**
 //     * @param key
