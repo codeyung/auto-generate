@@ -159,8 +159,8 @@
 //        return true;
 //        } catch (Exception e) {
 //        LOGGER.error("hsetnx 出错", e);
+//        throw e;
 //        }
-//        return false;
 //        }
 //
 //    /**
