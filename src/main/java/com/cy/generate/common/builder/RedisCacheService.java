@@ -79,8 +79,8 @@
 //        return STR_SUCCESS.equals(redis.set(key, json, "NX", "EX", seconds));
 //        } catch (Exception e) {
 //        LOGGER.error("setex 出错", e);
+//        throw e;
 //        }
-//        return false;
 //        }
 //
 //    /**
@@ -150,17 +150,18 @@
 //     * @param obj
 //     * @param seconds
 //     */
-//    public boolean hsetnx(String key, String field, Object obj, int seconds) {
+//public boolean hsetnx(String key, String field, Object obj, int seconds) {
 //        try {
-//            String json = GsonUtils.toJson(obj);
-//            redis.hsetnx(key, field, json);
-//            redis.expire(key, seconds);
-//            return true;
+//        String json = GsonUtils.toJson(obj);
+//        if (INT_SUCCESS == redis.hsetnx(key, field, json)) {
+//        redis.expire(key, seconds);
+//        }
+//        return true;
 //        } catch (Exception e) {
-//            LOGGER.error("hsetnx 出错", e);
+//        LOGGER.error("hsetnx 出错", e);
 //        }
 //        return false;
-//    }
+//        }
 //
 //    /**
 //     * @param key
