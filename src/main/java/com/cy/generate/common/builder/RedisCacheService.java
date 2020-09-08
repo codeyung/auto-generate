@@ -187,25 +187,28 @@
 //     * @param count
 //     * @return
 //     */
-//    public List hscan(String key, String pattern, int count) {
-//        String cursor = "0";
+//public List<String> hscan(String key, String pattern, int count) {
+//        String cursor = STR_CURSOR;
+//        List<String> keys = new ArrayList<>();
 //        while (true) {
-//            try {
-//                ScanResult<Map.Entry<String, String>> scanResult =
-//                        redis.hscan(key, cursor, new ScanParams().match(pattern).count(count));
-//                cursor = scanResult.getCursor();
-//                List<Map.Entry<String, String>> list = scanResult.getResult();
-//
-//                if (cursor.equals("0")) {
-//                    break;
-//                }
-//            } catch (Exception e) {
-//                LOGGER.error("hscan 出错", e);
-//            }
+//        try {
+//        ScanResult<Map.Entry<String, String>> scanResult =
+//        redis.hscan(key, cursor, new ScanParams().match(pattern).count(count));
+//        cursor = scanResult.getCursor();
+//        List<Map.Entry<String, String>> list = scanResult.getResult();
+//        if (CollectionUtils.isNotEmpty(list)) {
+//        list.forEach(entry -> keys.add(entry.getValue())
+//        );
 //        }
-//
-//        return null;
-//    }
+//        if (cursor.equals(STR_CURSOR)) {
+//        break;
+//        }
+//        } catch (Exception e) {
+//        LOGGER.error("hscan 出错", e);
+//        }
+//        }
+//        return keys;
+//        }
 //
 //    /**
 //     * @param key
