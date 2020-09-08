@@ -183,6 +183,24 @@
 //
 ///**
 // * @param key
+// * @param type
+// * @param fields
+// * @param <T>
+// * @return
+// */
+//public <T> List<T> hmget(String key, Class<T> type, String... fields) {
+//        List<T> list = new ArrayList<>();
+//        try {
+//        List<String> values = redis.hmget(key, fields);
+//        values.forEach(value -> list.add(GsonUtils.toBean(value, type)));
+//        return list;
+//        } catch (Exception e) {
+//        LOGGER.error("hget 出错", e);
+//        }
+//        return null;
+//        }
+///**
+// * @param key
 // * @param pattern
 // * @param count
 // * @return
