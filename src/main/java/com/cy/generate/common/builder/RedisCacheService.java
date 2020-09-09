@@ -83,6 +83,20 @@
 //        }
 //        }
 //
+///**
+// * @param key
+// * @param object
+// * @return
+// */
+//public boolean setrange(String key, Object object) {
+//        try {
+//        String json = GsonUtils.toJson(object);
+//        return redis.setrange(key, 0, json) > 0;
+//        } catch (Exception e) {
+//        LOGGER.error("setrange 出错", e);
+//        throw e;
+//        }
+//        }
 //    /**
 //     * @param key
 //     * @return
